@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Soft shadow under the white APK card -->
+    <path
+        android:fillColor="#28000000"
+        android:pathData="M34,32 L74,32 A10,10 0 0,1 84,42 L84,74 A10,10 0 0,1 74,84 L34,84 A10,10 0 0,1 24,74 L24,42 A10,10 0 0,1 34,32 Z" />
+
+    <!-- Main crisp white rounded APK card -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,29 L74,29 A10,10 0 0,1 84,39 L84,71 A10,10 0 0,1 74,81 L34,81 A10,10 0 0,1 24,71 L24,39 A10,10 0 0,1 34,29 Z" />
+
+    <!-- Top mint header bar on the card -->
+    <path
+        android:fillColor="#D1FAE5"
+        android:pathData="M34,29 L74,29 A10,10 0 0,1 84,39 L84,43 L24,43 L24,39 A10,10 0 0,1 34,29 Z" />
+
+    <!-- Three tiny window/browser dots -->
+    <path
+        android:fillColor="#059669"
+        android:pathData="M32,36 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0" />
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M39,36 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0" />
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M46,36 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0" />
+
+    <!-- Left HTML angle bracket '<' -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M44,53 L34,61 L44,69"
+        android:strokeWidth="4.2"
+        android:strokeColor="#047857"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Right HTML angle bracket '>' -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M64,53 L74,61 L64,69"
+        android:strokeWidth="4.2"
+        android:strokeColor="#047857"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Center slash '/' -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M57,51 L51,71"
+        android:strokeWidth="4"
+        android:strokeColor="#10B981"
+        android:strokeLineCap="round" />
+
+    <!-- Mint sparkle/leaf badge at top-right corner -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M78,22 L80.2,27.8 L86,30 L80.2,32.2 L78,38 L75.8,32.2 L70,30 L75.8,27.8 Z" />
+</vector>

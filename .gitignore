@@ -1,0 +1,29 @@
+*.iml
+.gradle
+/local.properties
+local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/app/build
+/template/build
+/captures
+.externalNativeBuild
+.cxx
+
+# Generated template & output APKs (built automatically by Gradle)
+app/src/main/assets/template.apk
+*.apk
+*.ap_
+*.aab
+
+# Signing keys & keystores (never commit secrets)
+*.jks
+*.keystore
+*.p12
+keystore.properties
