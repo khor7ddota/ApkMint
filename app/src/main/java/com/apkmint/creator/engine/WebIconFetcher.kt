@@ -3,6 +3,10 @@ package com.apkmint.creator.engine
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
 import android.net.Uri
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -67,14 +71,33 @@ object WebIconFetcher {
                     }
                 }
 
-                val bitmap = decodedBitmap ?: error("Could not find a valid icon for $host")
+                val rawBitmap = decodedBitmap ?: error("Could not find a valid icon for $host")
+                val framedBitmap = frameForAdaptiveIcon(rawBitmap)
+                if (framedBitmap !== rawBitmap) rawBitmap.recycle()
+
                 val outFile = File(context.cacheDir, "web_fetched_icon_${System.currentTimeMillis()}.png")
                 FileOutputStream(outFile).use { fos ->
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
+                    framedBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
                 }
-                Uri.fromFile(outFile) to bitmap
+                Uri.fromFile(outFile) to framedBitmap
             }
         }
+
+    private fun frameForAdaptiveIcon(src: Bitmap): Bitmap {
+        val size = 512
+        val out = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(out)
+
+        val corner = src.getPixel(0, 0)
+        val bgColor = if (Color.alpha(corner) < 128) Color.WHITE else corner
+        canvas.drawColor(bgColor)
+
+        val inset = size * 0.27f
+        val dst = RectF(inset, inset, size - inset, size - inset)
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
+        canvas.drawBitmap(src, null, dst, paint)
+        return out
+    }
 
     private fun normalizeUrl(raw: String): String {
         val trimmed = raw.trim()
